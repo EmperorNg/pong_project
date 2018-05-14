@@ -23,8 +23,9 @@ public class Snake extends JPanel implements ActionListener, KeyListener
 
     public void keyReleased(KeyEvent e)
     {
-        velX=0;
-        velY=0;
+        //velX=0;
+        //velY=0;
+        
     }
 
     public void keyPressed(KeyEvent e)
@@ -60,10 +61,17 @@ public class Snake extends JPanel implements ActionListener, KeyListener
     public void paintComponent(Graphics g)
     {
         super.paintComponent(g);
-        g.setColor(Color.RED);
-        g.fillRect(x,y,50,30);
+        g.setColor(Color.GREEN);
+        g.fillRect(x,y,20,20);
     }
-
+    // make death method
+    // if snake hits self or edge start over at random spot
+    //make food method 
+    //randomly spawns one food on grid 
+    // make grow method 
+    // if head equals same space as food grow the tail plus 1
+    
+    
     public void actionPerformed(ActionEvent e)
     {
         if(x<0)
@@ -71,20 +79,20 @@ public class Snake extends JPanel implements ActionListener, KeyListener
             velX=0;
             x=0;
         }
-        if(x>730)
+        if(x>780)
         {
             velX=0;
-            x=730;
+            x=780;
         }
         if(y<0)
         {
             velY=0;
             y=0;
         }
-        if(y>530)
+        if(y>560)
         {
             velY=0;
-            y=530;
+            y=560;
         }
         x=x+velX;
         y=y+velY;
@@ -97,7 +105,7 @@ public class Snake extends JPanel implements ActionListener, KeyListener
         JFrame jf = new JFrame();
         jf.setTitle("Snake Game");
         jf.setSize(800,600);
-        jf.getContentPane().setBackground(Color.BLACK);
+        //jf.getContentPane().setBackground(Color.BLACK);
         jf.setVisible(true);
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.add(s);
